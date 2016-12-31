@@ -23,7 +23,7 @@ None
 
 ## Class methods
 
-### ```generate_local```
+### ```create_local_school```
 
 Creates a ```CodecoolClass``` object having some real-life data from the implementer students' real class.
 

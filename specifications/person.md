@@ -21,6 +21,9 @@ None
 * ```gender```
   * data type: string
   * description: stores the person's gender - one from the following collection (male/female/notsure).
+* ```class_location```
+  * data type: string
+  * description: stores the location of the class to which person attends (city).
 
 ## Class methods
 
@@ -30,7 +33,7 @@ None
 ## Instance methods
 
 ### ```__init__```
-The constructor of the object. Constructor checks given arguments and raises error if any of the arguments is empty or if provided gender is not valid. 
+The constructor of the object. Constructor checks given arguments and raises error if any of the arguments is empty, its type is invalid or if provided gender is not valid. 
 
 #### Arguments
 
@@ -46,6 +49,9 @@ The constructor of the object. Constructor checks given arguments and raises err
 * ```gender```
   * data type: string
   * description: stores the person's gender - one from the following collection (male/female/notsure).
+* ```class_location```
+  * data type: string
+  * description: stores the location of the class to which person attends (city). 
 
 #### Return value
 None

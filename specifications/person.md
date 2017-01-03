@@ -30,7 +30,7 @@ None
 ## Instance methods
 
 ### ```__init__```
-The constructor of the object. Constructor checks given arguments and raises error if any of the attributes is empty or if provided gender is not valid. 
+The constructor of the object. Constructor checks given arguments and raises error if any of the arguments is empty or if provided gender is not valid. 
 
 #### Arguments
 

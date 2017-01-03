@@ -21,7 +21,7 @@ Person
 None
 
 #### Arguments
-None
+
 
 #### Return value
 

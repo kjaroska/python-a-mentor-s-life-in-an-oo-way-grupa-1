@@ -26,13 +26,6 @@ None
 
 None
 
-#### Arguments
-
-None
-
-#### Return value
-
-None.
 
 ## Instance methods
 
@@ -41,7 +34,18 @@ The constructor of the object. Constructor checks given arguments and raises err
 
 #### Arguments
 
-All of the arguments of the class itself.
+* ```first_name```
+  * data type: string
+  * description: stores the first name of the person.
+* ```last_name```
+  * data type: string
+  * description: stores the last name of the person.
+* ```year_of_birth```
+   * data type: integer
+   * description: stores the person's year of birth.
+* ```gender```
+  * data type: string
+  * description: stores the person's gender - one from the following collection (male/female/notsure).
 
 #### Return value
 None

@@ -24,3 +24,6 @@ class Person:
         locations = ('Cracow')
         if self.class_location not in locations:
             raise AttributeError('Location attribute is incorrect (there is no such location).')
+
+
+

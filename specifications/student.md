@@ -18,5 +18,27 @@ Person
 
 ## Class methods
 
+## Instance methods
+
 ### ```create_by_csv```
+
 Creates a list of students from real-life data contained in .csv format file.
+
+#### Arguments
+
+path to .csv file
+
+#### Return value
+
+List of students
+
+### ```__init__```
+
+The constructor of the student object.
+
+#### Arguments
+
+Everything inherited from Person class plus knowledge_level and energy_level.
+
+#### Return value
+None

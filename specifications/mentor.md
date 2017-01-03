@@ -25,7 +25,6 @@ None
 
 #### Return value
 
-Mentors object
 
 ## Instance methods
 

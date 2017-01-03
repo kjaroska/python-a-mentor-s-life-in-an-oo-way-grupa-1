@@ -8,6 +8,10 @@ Person
 
 ## Attributes
 
+* ```class_location```
+  * data type: string
+  * description: city where class location is
+
 * ```knowledge_level```
   * data type: integer
   * description: stores the knowledge level of the student in programming
@@ -15,6 +19,11 @@ Person
 * ```energy_level```
   * data type: integer
   * description: current energy level
+
+* ```class_annual```
+  * data type: integer
+  * description: year when Codecool started
+
 
 ## Class methods
 
@@ -38,7 +47,11 @@ The constructor of the student object.
 
 #### Arguments
 
-Everything inherited from Person class plus knowledge_level and energy_level.
+Everything inherited from Person class  
+-class_location,
+-knowledge_level,
+-energy_level,
+-class_annual
 
 #### Return value
 None

@@ -19,7 +19,7 @@ Person
 
 ### ```create_by_csv```
 
-Creates a list of students from real-life data contained in .csv format file.
+Creates a list of mentors from real-life data contained in .csv format file.
 
 Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back a list of mentors.
 

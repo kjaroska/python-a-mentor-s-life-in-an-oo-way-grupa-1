@@ -2,8 +2,8 @@ class Person:
     '''Class that creates Person object with basic data (name,yearof birth, gender, class locatiom.'''
 
 
-    def __init__(self,first_name = 'empty', last_name = 'empty',year_of_birth = 0, gender = 'empty', class_location = 'empty'):
-        '''Function that Initializes class object and checks given arguments.'''
+    def __init__(self,first_name = '', last_name = '',year_of_birth = 0, gender = '', class_location = ''):
+        '''Function that initializes class object and checks given arguments.'''
 
         self.first_name = first_name
         self.last_name = last_name
@@ -11,19 +11,40 @@ class Person:
         self.gender = gender
         self.class_location = class_location
 
-        if self.first_name == 'empty' or self.last_name == 'empty' or self.class_location == 'empty' \
-                or self.gender == 'empty' or self.year_of_birth == 0:
-            raise AttributeError('At least one of the attributes of Person class is empty. Indicate first name '
-            'last name, year of birth and gender, class location.')
+        try:
+            if not(self.first_name and self.last_name and self.year_of_birth and self.gender and self.class_location):
+                raise TypeError
+
+        except TypeError as class_error:
+            class_error.args =  ('At least one of the arguments was not provided.',)
+            raise
+
+        try:
+            if not(type(self.year_of_birth) is int and type(self.first_name) is str and type(self.last_name) is str and
+                                                        type(self.gender) is str and type(self.class_location) is str):
+
+                raise TypeError
+
+        except TypeError as class_error:
+            class_error.args = ('Incorrect type of argument.',)
+            raise
 
         genders = ('male', 'female', 'notsure')
-
-        if self.gender.lower() not in genders:
-            raise AttributeError('Gender attribute is incorrect (please indicate either male, female or notsure).')
-
         locations = ('Cracow')
-        if self.class_location not in locations:
-            raise AttributeError('Location attribute is incorrect (there is no such location).')
 
+        try:
+            if self.gender.lower() not in genders:
+                raise ValueError
 
+        except ValueError as class_error:
+                class_error.args = ('Gender is incorrect (indicate either male, female or notsure).',)
+                raise
+
+        try:
+            if self.class_location not in locations:
+                raise ValueError
+
+        except ValueError as class_error:
+                class_error.args = ('Location is incorrect (there is no Codecool school in this location).',)
+                raise
 

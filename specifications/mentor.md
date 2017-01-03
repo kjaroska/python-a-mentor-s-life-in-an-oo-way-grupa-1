@@ -17,11 +17,7 @@ Person
 
 ## Class methods
 
-### ```create_by_csv```
-
-Creates a list of mentors from real-life data contained in .csv format file.
-
-Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back a list of mentors.
+None
 
 
 #### Arguments
@@ -29,9 +25,15 @@ None
 
 #### Return value
 
-```Mentors``` object
+Mentors object
 
 ## Instance methods
+
+### ```create_by_csv```
+
+Creates a list of mentors from real-life data contained in .csv format file.
+
+Gets a csv file path as an argument (the csv contains all the data needed to instantiate a mentor object) and gives back a list of mentors.
 
 ### ```__init__```
 The constructor of the object.

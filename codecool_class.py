@@ -19,30 +19,30 @@ class CodecoolClass:
 
 
     def find_student_by_full_name(self):
-        name_of_student = (input("Please, give a name and surname")).split(" ")
+        name_of_student = (input("Please, give a name and surname: ")).split(" ")
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
                 choosen_student = student.__dict__
-                print(choosen_student["first_name"]\
+                print("Name and surname: {} {} Year of birt: {} Gender: {} Class location: {} Class anual: {} Energy level: {} knowledge_level: {}".format(choosen_student["first_name"]\
                 ,choosen_student["last_name"], choosen_student["year_of_birth"]\
                 ,choosen_student["gender"],choosen_student["class_location"]\
                 ,choosen_student["class_annual"],choosen_student["energy_level"]\
-                ,choosen_student["knowledge_level"] )
+                ,choosen_student["knowledge_level"] ))
                 return student
 
         print ("No such student, try again")
 
     def find_mentor_by_full_name(self):
-        name_of_mentor = (input("Please, give a name and surname")).split(" ")
+        name_of_mentor = (input("Please, give a name and surname: ")).split(" ")
 
         for mentor in self.mentors:
             if mentor.__dict__["first_name"] == name_of_mentor[0] and mentor.__dict__["last_name"] == name_of_mentor[1]:
                 choosen_mentor = mentor.__dict__
-                print(choosen_mentor["first_name"]\
+                print("Name and surname: {\033[91m} {\033[91m} Year of birt: {} Gender: {} Class location: {} nickname: {} expertise: {}".format(choosen_mentor["first_name"]\
                 ,choosen_mentor["last_name"], choosen_mentor["year_of_birth"]\
                 ,choosen_mentor["gender"],choosen_mentor["class_location"]\
-                ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"])
+                ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"]))
                 return mentor
 
         print ("No such mentor, try again")

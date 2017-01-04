@@ -49,13 +49,27 @@ class CodecoolClass:
         print ("No such mentor, try again")
 
     def do_gymnastics(self):
-        name_of_student = (input("Please, give a name and surname of Student")).split(" ")
+        name_of_student = (input("Please, give a name and surname of Student: ")).split(" ")
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
                 choosen_student = student.__dict__
                 choosen_student["energy_level"] += random.randint(1, 10)
                 print (choosen_student["first_name"], choosen_student["last_name"], "energy is now:", choosen_student['energy_level'])
+
+        with open('data/students.csv', 'w', encoding='utf-8') as students_list:
+            for student in self.students:
+                choosen_student = student.__dict__
+                values = [choosen_student["first_name"] \
+                    , choosen_student["last_name"], str(choosen_student["year_of_birth"]) \
+                    , choosen_student["gender"], choosen_student["class_location"] \
+                    , str(choosen_student["class_annual"]), str(choosen_student["energy_level"]) \
+                    , str(choosen_student["knowledge_level"])]
+
+                line_to_be_written = ','.join(values)
+                students_list.write(line_to_be_written + '\n')
+
+            students_list.close()
 
     def check_overal_energy(self):
         overalEnergy = 0
@@ -90,31 +104,10 @@ class CodecoolClass:
                 ,str(choosen_student["knowledge_level"])]
 
                 line_to_be_written = ','.join(values)
-                #for value in values:
-                #     line_to_be_written += value + ', '
-
-
-                print(line_to_be_written)
-
-                print(x)
                 students_list.write(line_to_be_written + '\n')
 
             students_list.close()
 
-        #         exp_inv = inventory.items()
-        #
-        #         for item in exp_inv:
-        #             line = map(str, item)
-        #             line_to_be_written = ", ".join(line) + "\n"
-        #             exported.write(line_to_be_written)
-        #
-        #     exported.close()
-        #     studentwriter = csv.writer(students_list, delimiter = ' ',quotechar = '|', quoting=quoting=csv.QUOTE_MINIMAL)
-        #     for student in self.students:
-        #         students_list.write()
-        #
-        # for student in self.students:
-        #     print(student.__dict__)
 
     @classmethod
     def generate_local(self):
@@ -127,5 +120,5 @@ m = CodecoolClass()
 # m.find_student_by_full_name()
 #m.find_mentor_by_full_name()
 m.check_overal_energy()
-#m.do_gymnastics()
+m.do_gymnastics()
 m.give_motivational_speech()

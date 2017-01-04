@@ -39,7 +39,7 @@ class CodecoolClass:
         for mentor in self.mentors:
             if mentor.__dict__["first_name"] == name_of_mentor[0] and mentor.__dict__["last_name"] == name_of_mentor[1]:
                 choosen_mentor = mentor.__dict__
-                print("Name and surname: {\033[91m} {\033[91m} Year of birt: {} Gender: {} Class location: {} nickname: {} expertise: {}".format(choosen_mentor["first_name"]\
+                print("Name and surname: {} {} Year of birt: {} Gender: {} Class location: {} nickname: {} expertise: {}".format(choosen_mentor["first_name"]\
                 ,choosen_mentor["last_name"], choosen_mentor["year_of_birth"]\
                 ,choosen_mentor["gender"],choosen_mentor["class_location"]\
                 ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"]))

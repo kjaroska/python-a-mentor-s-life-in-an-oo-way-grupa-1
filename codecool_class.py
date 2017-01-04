@@ -1,6 +1,6 @@
 from mentor import Mentor
 from student import Student
-
+import random
 
 class CodecoolClass:
 
@@ -19,7 +19,7 @@ class CodecoolClass:
 
 
     def find_student_by_full_name(self):
-        name_of_student = (input("Please, give a name and surname: ")).split(" ")
+        name_of_student = (input("Please, STUDENT give a name and surname: ")).split(" ")
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
@@ -34,7 +34,7 @@ class CodecoolClass:
         print ("No such student, try again")
 
     def find_mentor_by_full_name(self):
-        name_of_mentor = (input("Please, give a name and surname: ")).split(" ")
+        name_of_mentor = (input("Please, give MENTOR a name and surname: ")).split(" ")
 
         for mentor in self.mentors:
             if mentor.__dict__["first_name"] == name_of_mentor[0] and mentor.__dict__["last_name"] == name_of_mentor[1]:
@@ -47,6 +47,39 @@ class CodecoolClass:
 
         print ("No such mentor, try again")
 
+    def do_gymnastics(self):
+        name_of_student = (input("Please, STUDENT give a name and surname")).split(" ")
+
+        for student in self.students:
+            if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
+                choosen_student = student.__dict__
+                choosen_student["energy_level"] += random.randint(1, 10)
+                print (choosen_student["first_name"], choosen_student["last_name"], "energy is now:", choosen_student['energy_level'])
+
+    def check_overal_energy(self):
+        overalEnergy = 0
+        for student in self.students:
+            overalEnergy +=student.__dict__["energy_level"]
+        print(overalEnergy)
+
+    def give_motivational_speech(self):
+        mentor_that_motivates = self.find_mentor_by_full_name().__dict__
+        student_to_motivate = self.find_student_by_full_name().__dict__
+        if mentor_that_motivates['field_of_expertise'] == "Java":
+            student_to_motivate["knowledge_level"] += 5
+        elif mentor_that_motivates['field_of_expertise'] == "Python":
+            student_to_motivate["knowledge_level"] += 10
+        elif mentor_that_motivates['field_of_expertise'] == "RubyOnRails":
+            student_to_motivate["knowledge_level"] += 1
+        elif mentor_that_motivates['field_of_expertise'] == "MySql":
+            student_to_motivate["knowledge_level"] += 2
+        elif mentor_that_motivates['field_of_expertise'] == "CPP":
+            student_to_motivate["knowledge_level"] += 3
+        elif mentor_that_motivates['field_of_expertise'] == "PHP":
+            student_to_motivate["knowledge_level"] += 4
+        print (student_to_motivate["first_name"], student_to_motivate["last_name"], "knowledge is now:", student_to_motivate['knowledge_level'])
+
+
     @classmethod
     def generate_local(self):
         local_class = CodecoolClass()
@@ -56,4 +89,7 @@ m = CodecoolClass()
 # for mentor in m.mentors_list:
 #     print(mentor.__dict__)
 # m.find_student_by_full_name()
-m.find_mentor_by_full_name()
+#m.find_mentor_by_full_name()
+m.check_overal_energy()
+m.do_gymnastics()
+m.give_motivational_speech()

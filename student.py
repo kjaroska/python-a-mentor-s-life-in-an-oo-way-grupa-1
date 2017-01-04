@@ -13,8 +13,8 @@ class Student(Person):
 
         students_obj_lst= []
         for human in students_list:
-            students_obj = Student(human[0], human[1], int(human[2]), human[3], human[4], human[5], human[6],
-                                       human[7])
+            students_obj = Student(human[0], human[1], int(human[2]), human[3], human[4], human[5], int(human[6]),
+                                       int(human[7]))
             students_obj_lst.append(students_obj)
         return students_obj_lst
 

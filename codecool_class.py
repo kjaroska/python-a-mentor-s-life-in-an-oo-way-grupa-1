@@ -1,6 +1,7 @@
 from mentor import Mentor
 from student import Student
 import random
+import csv
 
 class CodecoolClass:
 
@@ -19,7 +20,7 @@ class CodecoolClass:
 
 
     def find_student_by_full_name(self):
-        name_of_student = (input("Please, STUDENT give a name and surname: ")).split(" ")
+        name_of_student = (input("Please,  give a name and surname of Student: ")).split(" ")
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
@@ -34,7 +35,7 @@ class CodecoolClass:
         print ("No such student, try again")
 
     def find_mentor_by_full_name(self):
-        name_of_mentor = (input("Please, give MENTOR a name and surname: ")).split(" ")
+        name_of_mentor = (input("Please, give a name and surname of Mentor: ")).split(" ")
 
         for mentor in self.mentors:
             if mentor.__dict__["first_name"] == name_of_mentor[0] and mentor.__dict__["last_name"] == name_of_mentor[1]:
@@ -48,7 +49,7 @@ class CodecoolClass:
         print ("No such mentor, try again")
 
     def do_gymnastics(self):
-        name_of_student = (input("Please, STUDENT give a name and surname")).split(" ")
+        name_of_student = (input("Please, give a name and surname of Student")).split(" ")
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
@@ -79,6 +80,32 @@ class CodecoolClass:
             student_to_motivate["knowledge_level"] += 4
         print (student_to_motivate["first_name"], student_to_motivate["last_name"], "knowledge is now:", student_to_motivate['knowledge_level'])
 
+        with open('data/students.csv', 'w', encoding='utf-8') as students_list:
+            for student in self.students:
+                choosen_student = student.__dict__
+                line_to_be_written = choosen_student["first_name"]\
+                + ' ' + choosen_student["last_name"] + ' ' + str(choosen_student["year_of_birth"])\
+                + ' ' + choosen_student["gender"] + ' ' + choosen_student["class_location"]\
+                + ' ' + str(choosen_student["class_annual"]) + ' ' + str(choosen_student["energy_level"])\
+                + ' ' + str(choosen_student["knowledge_level"]) + '\n'
+                students_list.write(line_to_be_written)
+
+            students_list.close()
+
+        #         exp_inv = inventory.items()
+        #
+        #         for item in exp_inv:
+        #             line = map(str, item)
+        #             line_to_be_written = ", ".join(line) + "\n"
+        #             exported.write(line_to_be_written)
+        #
+        #     exported.close()
+        #     studentwriter = csv.writer(students_list, delimiter = ' ',quotechar = '|', quoting=quoting=csv.QUOTE_MINIMAL)
+        #     for student in self.students:
+        #         students_list.write()
+        #
+        # for student in self.students:
+        #     print(student.__dict__)
 
     @classmethod
     def generate_local(self):
@@ -91,5 +118,5 @@ m = CodecoolClass()
 # m.find_student_by_full_name()
 #m.find_mentor_by_full_name()
 m.check_overal_energy()
-m.do_gymnastics()
+#m.do_gymnastics()
 m.give_motivational_speech()

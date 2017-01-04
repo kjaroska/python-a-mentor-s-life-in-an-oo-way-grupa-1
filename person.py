@@ -1,5 +1,5 @@
 class Person:
-    '''Class that creates Person object with basic data (name,yearof birth, gender, class locatiom.'''
+    '''Class that creates Person object with basic data (name,year of  birth, gender, class locatiom.'''
 
 
     def __init__(self,first_name = '', last_name = '',year_of_birth = 0, gender = '', class_location = ''):

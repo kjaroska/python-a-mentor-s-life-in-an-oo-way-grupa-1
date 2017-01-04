@@ -83,12 +83,21 @@ class CodecoolClass:
         with open('data/students.csv', 'w', encoding='utf-8') as students_list:
             for student in self.students:
                 choosen_student = student.__dict__
-                line_to_be_written = ', '.join(choosen_student["first_name"]\
+                values = [choosen_student["first_name"]\
                 ,choosen_student["last_name"], str(choosen_student["year_of_birth"])\
                 ,choosen_student["gender"], choosen_student["class_location"]\
                 ,str(choosen_student["class_annual"]),str(choosen_student["energy_level"])\
-                ,str(choosen_student["knowledge_level"])
-                students_list.write(line_to_be_written + '\n')
+                ,str(choosen_student["knowledge_level"])]
+
+                line_to_be_written = ''
+                for value in values:
+                     line_to_be_written += value + ','
+
+
+                print(line_to_be_written)
+                x = ', '.join(line_to_be_written) + '\n'
+                print(x)
+                students_list.write(x)
 
             students_list.close()
 

@@ -20,3 +20,11 @@ class Mentor(Person):
         Person.__init__(self, first_name, last_name, date_of_birth, gender,  class_location = "Cracow")
         self.nickname = nickname
         self.field_of_expertise = field_of_expertise
+
+        try:
+            if not(self.nickname and self.field_of_expertise):
+                raise TypeError
+
+        except TypeError as class_error:
+            class_error.args =  ('At least one of the arguments was not provided.',)
+            raise

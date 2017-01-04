@@ -23,3 +23,11 @@ class Student(Person):
         self.class_annual = class_annual
         self.energy_level = energy_level
         self.knowledge_level = knowledge_level
+
+        try:
+            if not(self.class_annual and self.energy_level and knowledge_level):
+                raise TypeError
+
+        except TypeError as class_error:
+            class_error.args =  ('At least one of the arguments was not provided.',)
+            raise

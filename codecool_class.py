@@ -89,15 +89,15 @@ class CodecoolClass:
                 ,str(choosen_student["class_annual"]),str(choosen_student["energy_level"])\
                 ,str(choosen_student["knowledge_level"])]
 
-                line_to_be_written = ''
-                for value in values:
-                     line_to_be_written += value + ','
+                line_to_be_written = ','.join(values)
+                #for value in values:
+                #     line_to_be_written += value + ', '
 
 
                 print(line_to_be_written)
-                x = ', '.join(line_to_be_written) + '\n'
+
                 print(x)
-                students_list.write(x)
+                students_list.write(line_to_be_written + '\n')
 
             students_list.close()
 

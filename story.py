@@ -3,6 +3,7 @@ from mentor import Mentor
 from student import Student
 import time
 
+
 def main():
     codecool_krk = CodecoolClass.generate_local()
     time.sleep(0.5)

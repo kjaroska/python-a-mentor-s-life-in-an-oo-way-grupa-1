@@ -149,7 +149,7 @@ class CodecoolClass:
 
 
     @classmethod
-    def generate_local(self):
+    def generate_local(cls):
         '''Function that generates CodecoolClass object.'''
         local_class = CodecoolClass()
         return local_class

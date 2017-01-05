@@ -1,8 +1,7 @@
 class Person:
     '''Class that creates Person object with basic data (name,year of  birth, gender, class locatiom.'''
 
-
-    def __init__(self,first_name = '', last_name = '',year_of_birth = 0, gender = '', class_location = ''):
+    def __init__(self, first_name='', last_name='', year_of_birth=0, gender='', class_location=''):
         '''Function that initializes class object and checks given arguments.'''
 
         self.first_name = first_name
@@ -16,7 +15,7 @@ class Person:
                 raise TypeError
 
         except TypeError as class_error:
-            class_error.args =  ('At least one of the arguments was not provided.',)
+            class_error.args = ('At least one of the arguments was not provided.',)
             raise
 
         try:
@@ -47,4 +46,3 @@ class Person:
         except ValueError as class_error:
                 class_error.args = ('Location is incorrect (there is no Codecool school in this location).',)
                 raise
-

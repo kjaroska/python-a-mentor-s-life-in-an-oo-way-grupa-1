@@ -1,7 +1,7 @@
 from mentor import Mentor
 from student import Student
 import random
-import csv
+
 
 class CodecoolClass:
     '''Class that generate codecool class object with list of mentors (separate objects) and list of students
@@ -31,7 +31,7 @@ class CodecoolClass:
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
                 choosen_student = student.__dict__
-                print("Name and surname: {} {} Year of birt: {} Gender: {} Class location: {} Class anual: {} Energy level: {} knowledge_level: {}".format(choosen_student["first_name"]\
+                print("Name and surname: {} {} | Year of birt: {} | Gender: {} | Class location: {} | Class anual: {} | Energy level: {} | Knowledge level: {}".format(choosen_student["first_name"]\
                 ,choosen_student["last_name"], choosen_student["year_of_birth"]\
                 ,choosen_student["gender"],choosen_student["class_location"]\
                 ,choosen_student["class_annual"],choosen_student["energy_level"]\
@@ -56,7 +56,7 @@ class CodecoolClass:
         for mentor in self.mentors:
             if mentor.__dict__["first_name"] == name_of_mentor[0] and mentor.__dict__["last_name"] == name_of_mentor[1]:
                 choosen_mentor = mentor.__dict__
-                print("Name and surname: {} {} Year of birt: {} Gender: {} Class location: {} nickname: {} expertise: {}".format(choosen_mentor["first_name"]\
+                print("Name and surname: {} {} | Year of birt: {} | Gender: {} | Class location: | {} Nickname: {} | Expertise: {}".format(choosen_mentor["first_name"]\
                 ,choosen_mentor["last_name"], choosen_mentor["year_of_birth"]\
                 ,choosen_mentor["gender"],choosen_mentor["class_location"]\
                 ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"]))
@@ -114,7 +114,7 @@ class CodecoolClass:
         for student in self.students:
             overalEnergy +=student.__dict__["energy_level"]
 
-        print(overalEnergy)
+        print("Overall energy level is: ", overalEnergy)
 
 
     def give_motivational_speech(self, name_of_student, name_of_mentor):
@@ -153,15 +153,3 @@ class CodecoolClass:
         '''Function that generates CodecoolClass object.'''
         local_class = CodecoolClass()
         return local_class
-
-CodecoolClass.generate_local().do_gymnastics("Jadwiga Milecka")
-
-CodecoolClass.generate_local().check_overal_energy()
-
-CodecoolClass.generate_local().give_motivational_speech("Jadwiga Milecka", "Kamil Jocz")
-
-# m.find_student_by_full_name()
-#m.find_mentor_by_full_name()
-# .check_overal_energy()
-# m.do_gymnastics()
-# m.give_motivational_speech()

@@ -23,7 +23,7 @@ None
 
 ## Class methods
 
-### ```create_local_school```
+### ```generate_local```
 
 Creates a ```CodecoolClass``` object having some real-life data from the implementer students' real class.
 
@@ -40,7 +40,6 @@ None
 The constructor of the object.
 
 #### Arguments
-
 All of the arguments of the class itself.
 
 #### Return value
@@ -50,9 +49,9 @@ None
 Gives back a student with the same full name as the argument from ```students```
 
 #### Arguments
-* ```full_name```
+* ```name_of_student```
   * data_type: string
-  * description: holds the full name of the student to be found
+  * description: holds the full name (Name & Lastname) of the student to be found
 
 #### Return value
 ```Student``` object
@@ -60,9 +59,9 @@ Gives back a student with the same full name as the argument from ```students```
 ### ```find_mentor_by_full_name```
 
 #### Arguments
-* ```full_name```
+* ```name_of_mentor```
   * data_type: string
-  * description: holds the full name of the mentor to be found
+  * description: holds the full name (Name & Lastname) of the mentor to be found
 
 #### Return value
 ```Mentor``` object
@@ -82,10 +81,10 @@ None
 Specified mentor motivates a student increasing his/her knowledge level depending on his/her field of expertise.
 
 #### Arguments
-* ```student_to_motivate```
+* ```name_of_student```
   * data_type: string
   * description: Name of the student to motivate
-* ```mentor_that_motivates```
+* ```name_of_mentor```
   * data_type: string
   * description: Name of the mentor that motivates
 

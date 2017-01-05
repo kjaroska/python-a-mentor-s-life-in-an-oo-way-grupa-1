@@ -18,5 +18,8 @@ def main():
     codecool_krk.find_mentor_by_full_name("Justyna Głowa")
     codecool_krk.find_mentor_by_full_name("Beata Szydło")
 
+    print('Number of Students in Codecool Cracow: {}.'.format(len(codecool_krk.students)))
+    print('Number of Mentors in Codecool Cracow: {}.'.format(len(codecool_krk.mentors)))
+
 
 main()

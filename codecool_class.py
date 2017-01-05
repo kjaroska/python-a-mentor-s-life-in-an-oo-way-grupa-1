@@ -32,7 +32,7 @@ class CodecoolClass:
                 ,choosen_student["knowledge_level"] ))
                 return student
 
-        print ("No such student, try again")
+        print ("No such student.")
 
     def find_mentor_by_full_name(self):
         name_of_mentor = (input("Please, give a name and surname of Mentor: ")).split(" ")
@@ -46,16 +46,23 @@ class CodecoolClass:
                 ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"]))
                 return mentor
 
-        print ("No such mentor, try again")
+        print ("No such mentor.")
 
     def do_gymnastics(self):
         name_of_student = (input("Please, give a name and surname of Student: ")).split(" ")
+
+        try:
+            name_of_student[1]
+
+        except IndexError:
+            print('You have not given proper name and surname of a Student.')
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:
                 choosen_student = student.__dict__
                 choosen_student["energy_level"] += random.randint(1, 10)
                 print (choosen_student["first_name"], choosen_student["last_name"], "energy is now:", choosen_student['energy_level'])
+
 
         with open('data/students.csv', 'w', encoding='utf-8') as students_list:
             for student in self.students:
@@ -78,8 +85,17 @@ class CodecoolClass:
         print(overalEnergy)
 
     def give_motivational_speech(self):
-        mentor_that_motivates = self.find_mentor_by_full_name().__dict__
-        student_to_motivate = self.find_student_by_full_name().__dict__
+
+        try:
+            mentor_that_motivates = self.find_mentor_by_full_name().__dict__
+            student_to_motivate = self.find_student_by_full_name().__dict__
+
+        except AttributeError:
+            print('You have not indicated proper names and surnames of existing student'
+                  ' and/or existing mentor.')
+            return None
+
+
         if mentor_that_motivates['field_of_expertise'] == "Java":
             student_to_motivate["knowledge_level"] += 5
         elif mentor_that_motivates['field_of_expertise'] == "Python":
@@ -115,8 +131,7 @@ class CodecoolClass:
         return local_class
 
 m = CodecoolClass()
-# for mentor in m.mentors_list:
-#     print(mentor.__dict__)
+
 # m.find_student_by_full_name()
 #m.find_mentor_by_full_name()
 m.check_overal_energy()

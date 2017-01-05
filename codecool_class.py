@@ -38,7 +38,7 @@ class CodecoolClass:
                 ,choosen_student["knowledge_level"] ))
                 return student
 
-        print ("No such student.")
+        print ('\x1b[6;30;42m' + "No such student." + '\x1b[0m')
 
 
     def find_mentor_by_full_name(self, name_of_mentor):
@@ -62,7 +62,7 @@ class CodecoolClass:
                 ,choosen_mentor["nickname"],choosen_mentor["field_of_expertise"]))
                 return mentor
 
-        print ("No such mentor.")
+        print ('\x1b[6;30;42m' + "No such mentor." + '\x1b[0m')
 
 
 
@@ -94,7 +94,7 @@ class CodecoolClass:
             name_of_student[1]
 
         except IndexError:
-            print('You have not given proper name and surname of a Student.')
+            print('\x1b[6;30;42m' + 'You have not given proper name and surname of a Student.' + '\x1b[0m')
 
         for student in self.students:
             if student.__dict__["first_name"] == name_of_student[0] and student.__dict__["last_name"] == name_of_student[1]:

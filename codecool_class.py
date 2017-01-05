@@ -65,13 +65,32 @@ class CodecoolClass:
         print ("No such mentor.")
 
 
+
+    def saving_into_file(self):
+        '''Function that saves changed attributes of object from Student class into csv file containing students data.'''
+
+        with open('data/students.csv', 'w', encoding='utf-8') as students_list:
+            for student in self.students:
+                choosen_student = student.__dict__
+                values = [choosen_student["first_name"]\
+                ,choosen_student["last_name"], str(choosen_student["year_of_birth"])\
+                ,choosen_student["gender"], choosen_student["class_location"]\
+                ,str(choosen_student["class_annual"]),str(choosen_student["energy_level"])\
+                ,str(choosen_student["knowledge_level"])]
+
+                line_to_be_written = ','.join(values)
+                students_list.write(line_to_be_written + '\n')
+
+            students_list.close()
+
+
     def do_gymnastics(self, name_of_student):
         '''Function that changes energy level attribute of object from Student class (extracted from Students list of
         object) specified by a given name of a Student.'''
 
         name_of_student = name_of_student.split(" ")
 
-        try:
+        try:  #error handling
             name_of_student[1]
 
         except IndexError:
@@ -83,20 +102,8 @@ class CodecoolClass:
                 choosen_student["energy_level"] += random.randint(1, 10)
                 print (choosen_student["first_name"], choosen_student["last_name"], "energy is now:", choosen_student['energy_level'])
 
+        self.saving_into_file()
 
-        with open('data/students.csv', 'w', encoding='utf-8') as students_list:
-            for student in self.students:
-                choosen_student = student.__dict__
-                values = [choosen_student["first_name"] \
-                    , choosen_student["last_name"], str(choosen_student["year_of_birth"]) \
-                    , choosen_student["gender"], choosen_student["class_location"] \
-                    , str(choosen_student["class_annual"]), str(choosen_student["energy_level"]) \
-                    , str(choosen_student["knowledge_level"])]
-
-                line_to_be_written = ','.join(values)
-                students_list.write(line_to_be_written + '\n')
-
-            students_list.close()
 
     def check_overal_energy(self):
         '''Function that provides information about overall energy of class calculated by using energy level attribute
@@ -118,11 +125,11 @@ class CodecoolClass:
             mentor_that_motivates = self.find_mentor_by_full_name(name_of_mentor).__dict__
             student_to_motivate = self.find_student_by_full_name(name_of_student).__dict__
 
+
         except AttributeError:
             print('You have not indicated proper names and surnames of existing student'
                   ' or existing mentor.')
             return None
-
 
         if mentor_that_motivates['field_of_expertise'] == "Java":
             student_to_motivate["knowledge_level"] += 5
@@ -138,19 +145,7 @@ class CodecoolClass:
             student_to_motivate["knowledge_level"] += 4
         print (student_to_motivate["first_name"], student_to_motivate["last_name"], "knowledge is now:", student_to_motivate['knowledge_level'])
 
-        with open('data/students.csv', 'w', encoding='utf-8') as students_list:
-            for student in self.students:
-                choosen_student = student.__dict__
-                values = [choosen_student["first_name"]\
-                ,choosen_student["last_name"], str(choosen_student["year_of_birth"])\
-                ,choosen_student["gender"], choosen_student["class_location"]\
-                ,str(choosen_student["class_annual"]),str(choosen_student["energy_level"])\
-                ,str(choosen_student["knowledge_level"])]
-
-                line_to_be_written = ','.join(values)
-                students_list.write(line_to_be_written + '\n')
-
-            students_list.close()
+        self.saving_into_file()
 
 
     @classmethod

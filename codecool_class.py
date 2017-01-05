@@ -4,6 +4,9 @@ import random
 import csv
 
 class CodecoolClass:
+    '''Class that generate codecool class object with list of mentors (separate objects) and list of students
+    (also separate objects). This class enable finding mentor/student by its name as well as changing student energy
+    and knowledge level.'''
 
 
     def __init__(self):
@@ -13,13 +16,10 @@ class CodecoolClass:
         self.year = 2016
 
 
-    @classmethod
-    def generate_local(self):
-        local_class = CodecoolClass()
-        return local_class
-
-
     def find_student_by_full_name(self):
+        '''Function enabling searching for a object from Student class in students list of object
+        by given name of a student.'''
+
         name_of_student = (input("Please,  give a name and surname of Student: ")).split(" ")
 
         for student in self.students:
@@ -34,7 +34,11 @@ class CodecoolClass:
 
         print ("No such student.")
 
+
     def find_mentor_by_full_name(self):
+        '''Function enabling searching for a object from Mentor class in mentors list of object
+                by given name of a mentor.'''
+
         name_of_mentor = (input("Please, give a name and surname of Mentor: ")).split(" ")
 
         for mentor in self.mentors:
@@ -48,7 +52,11 @@ class CodecoolClass:
 
         print ("No such mentor.")
 
+
     def do_gymnastics(self):
+        '''Function that changes energy level attribute of object from Student class (extracted from Students list of
+        object) specified by a given name of a Student.'''
+
         name_of_student = (input("Please, give a name and surname of Student: ")).split(" ")
 
         try:
@@ -79,12 +87,20 @@ class CodecoolClass:
             students_list.close()
 
     def check_overal_energy(self):
+        '''Function that provides information about overall energy of class calculated by using energy level attribute
+        taken from each object from Student class, being part of Students list'''
+
         overalEnergy = 0
+
         for student in self.students:
             overalEnergy +=student.__dict__["energy_level"]
+
         print(overalEnergy)
 
+
     def give_motivational_speech(self):
+        '''Function that changes knowledge level attribute of object from Student class (extracted from Students list of
+                object) specified by a given name of a Student.'''
 
         try:
             mentor_that_motivates = self.find_mentor_by_full_name().__dict__
@@ -92,7 +108,7 @@ class CodecoolClass:
 
         except AttributeError:
             print('You have not indicated proper names and surnames of existing student'
-                  ' and/or existing mentor.')
+                  ' or existing mentor.')
             return None
 
 
@@ -127,6 +143,7 @@ class CodecoolClass:
 
     @classmethod
     def generate_local(self):
+        '''Function that generates CodecoolClass object.'''
         local_class = CodecoolClass()
         return local_class
 

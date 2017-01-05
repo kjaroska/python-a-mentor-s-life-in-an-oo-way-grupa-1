@@ -100,3 +100,12 @@ None
 
 #### Return value
 None
+
+### ```saving_into_file```
+Method that saves changes in Student's attribute into csv file containing data of all Students.
+
+#### Arguments
+None
+
+#### Return value
+None
